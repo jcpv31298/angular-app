@@ -1,0 +1,25 @@
+<table class="table table-bordered">
+  <thead class="bg-dark text-white">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Rol</th>
+      <th>Created At</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of users">
+    <tr>
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.rol}}</td>
+      <td>{{user.created_at}}</td>
+      <td class="text-center">
+        <button (click)="getUser(user.id)" type="button" class="btn btn-primary me-1"><i class="uil uil-edit"></i></button>
+        <button (click)="deleteUser(user.id)" [disabled]="emailValidate === user.email" type="button" class="btn btn-danger"><i class="uil uil-trash-alt"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
