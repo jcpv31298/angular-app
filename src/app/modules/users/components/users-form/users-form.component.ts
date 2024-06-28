@@ -78,6 +78,13 @@ export class UsersFormComponent implements OnInit {
       this.usersService.editUser(this.user);
     }
     else {
+      const validateEmail = this.usersService.validateEmail(email);
+
+      if(validateEmail) {
+        alert('Email already exists');
+        return false;
+      }
+
       this.user = {
         id: Date.now(),
         name: name,

@@ -54,8 +54,12 @@ export class UsersService {
     return false;
   }
 
-  validateEmail(): boolean {
-    return true;
+  validateEmail(email: string): boolean {
+    const usersLocalStorage: Array<UserModel> = this.getUsers();
+    const userFiltered: Array<UserModel> = usersLocalStorage.filter(user => user.email === email);
+
+    if(userFiltered.length > 0) return true;
+    else return false;
   }
 }
 
